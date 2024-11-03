@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Running Split Calculator</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="nurmi.css">
+    <script type="text/javascript" src="nurmi.js"></script>
+</head>
+
+<body>
+<h1>Running Calculator</h1>
+
+Use this tool to calculate timing splits for your next workout or race.
+<br>
+<br>
+
+<label for="iTotalDistanceValue">Total Distance:</label>
+<input id="TotalDistanceValue" type="number" min="1" value="1600">
+<select id="iTotalDistanceUnits">
+    <option value="m">m</option>
+    <option value="km">km</option>
+    <option value="mi">mi</option>
+    <option value="half_marathons">half marathon(s)</option>
+    <option value="marathons">marathon(s)</option>
+</select>
+
+<br>
+<br>
+
+<label for="iSplitDistanceValue">Split Distance:</label>
+<input id="iSplitDistanceValue" type="number" min="1" value="400">
+<select id="iSplitDistanceUnits">
+    <option value="m">m</option>
+    <option value="km">km</option>
+    <option value="mi">mi</option>
+    <option value="half_marathons">half marathon(s)</option>
+    <option value="marathons">marathon(s)</option>
+</select>
+
+<br>
+<br>
+
+<label>At a pace of</label>
+<input id="iPaceHours" type="number" min="0" max="99" value="00">:
+<input id="iPaceMins" type="number" class="minSecInput" min="0" max="59" value="06">:
+<input id="iPaceSecs" type="number" class="minSecInput" min="0" max="59" value="00">
+per
+<input id="iPaceDistanceValue" type="number" min="1" value="1600">
+<select id="iPaceDistanceUnits">
+    <option value="m">m</option>
+    <option value="km">km</option>
+    <option value="mi">mi</option>
+    <option value="half_marathons">half marathon(s)</option>
+    <option value="marathons">marathon(s)</option>
+</select>
+
+<br>
+<br>
+
+<button type="button" id="bGenerate">Generate Splits</button>
+
+<br>
+<br>
+<table id="tblSplits">
+    <tr>
+        <th>Split</th>
+        <th>Distance</th>
+        <th>Split Time</th>
+        <th>Total Time</th>
+    </tr>
+</table>
+</body>
+
+</html>
