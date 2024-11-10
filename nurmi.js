@@ -119,10 +119,16 @@ document.addEventListener("DOMContentLoaded", function() {
         let split_distance_units = document.querySelector("#iSplitDistanceUnits").value;
         let split_distance_meters = convertDistanceToMeters(split_distance_value, split_distance_units);
 
-        let time_hours = Number(document.querySelector("#iPaceHours").value);
-        let time_minutes = Number(document.querySelector("#iPaceMins").value);
-        let time_seconds = Number(document.querySelector("#iPaceSecs").value);
-        let total_time_seconds = time_hours * SECONDS_PER_HOUR + time_minutes * SECONDS_PER_MINUTE + time_seconds;
+        let pace_hours = Number(document.querySelector("#iPaceHours").value);
+        let pace_minutes = Number(document.querySelector("#iPaceMins").value);
+        let pace_seconds = Number(document.querySelector("#iPaceSecs").value);
+        let pace_total_seconds = pace_hours * SECONDS_PER_HOUR + pace_minutes * SECONDS_PER_MINUTE + pace_seconds;
+
+        let pace_distance_value = Number(document.querySelector("#iPaceDistanceValue").value);
+        let pace_distance_units = document.querySelector("#iPaceDistanceUnits").value;
+        let pace_distance_meters = convertDistanceToMeters(pace_distance_value, pace_distance_units);
+
+        let total_time_seconds = pace_total_seconds * (total_distance_meters / pace_distance_meters);
 
         let split_distances_meters = generateSplitDistances(split_distance_meters, total_distance_meters);
         let split_times_seconds = generateSplitTimes(split_distances_meters, total_distance_meters, total_time_seconds);
