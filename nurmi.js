@@ -1,3 +1,5 @@
+// Author: John Kolb
+// SPDX-License-Identifier: GPL-3.0-or-later
 const METERS_PER_MILE = 1609.344
 const MILES_PER_MARATHON = 26.2
 
@@ -68,7 +70,7 @@ function formatSplitDistances(split_distances_meters, desired_split_unit) {
 
 function formatSplitTimes(split_times_seconds) {
     return split_times_seconds.map((time) => {
-        let remaining_seconds = time;
+        let remaining_seconds = time.toFixed(); // Round to nearest second
         let total_hours = Math.floor(remaining_seconds / SECONDS_PER_HOUR);
         remaining_seconds %= SECONDS_PER_HOUR;
         let total_minutes = Math.floor(remaining_seconds / SECONDS_PER_MINUTE);
@@ -76,7 +78,7 @@ function formatSplitTimes(split_times_seconds) {
         let total_seconds = remaining_seconds;
 
         let formatted_minutes = total_minutes.toString().padStart(2, "0");
-        let formatted_seconds = total_seconds.toFixed().toString().padStart(2, "0");
+        let formatted_seconds = total_seconds.toString().padStart(2, "0");
         return `${total_hours}:${formatted_minutes}:${formatted_seconds}`
     });
 }
@@ -100,7 +102,7 @@ function populateSplitTable(table, split_distances, split_times) {
 document.addEventListener("DOMContentLoaded", function() {
     const num_inputs = document.querySelectorAll(".minSecInput");
     for (const num_input of num_inputs) {
-        num_input.addEventListener("focusout", (e) => {
+        num_input.addEventListener("change", (e) => {
             leadingZero(e.target);
         });
     }
